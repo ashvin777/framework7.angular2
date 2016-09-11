@@ -1,54 +1,26 @@
-//declarations of app root object
-window.app = {
-  Modules: {},
-  Components: {},
-  Pages: {},
-  Directives: {},
-  Pipes: {},
-  Services: {},
-  Storage: {},
-  Config: {}
-};
+function initialize() {
 
-app.Config.init = function() {
-
-  app.Modules.Services = ng.core.NgModule({
-    imports: []
+  var BodyComponent = ng.core.Component({
+    selector: 'body',
+    template: '<router-outlet></router-outlet>'
   }).Class({
     constructor: function() {}
   });
 
-  app.Modules.Pipes = ng.core.NgModule({
-    imports: []
-  }).Class({
-    constructor: function() {}
-  });
-
-  app.Modules.Factories = ng.core.NgModule({
-    imports: []
-  }).Class({
-    constructor: function() {}
-  });
-
-  app.Directives.App = ng.core.Component({
-    selector: "app",
-    template: ""
-  }).Class({
-    constructor: function() {
-
-    }
-  });
-
-  app.Modules.Directives = ng.core.NgModule({
-    import: [app.Directives.App]
-  }).Class({
-    constructor: function() {}
-  });
-
-  app.Modules.MainModule = ng.core.NgModule({
-      imports: [ng.platformBrowser.BrowserModule, app.Modules.Services, app.Modules.Pipes, app.Modules.Factories, app.Modules.Directives],
-      declarations: [app.Directives.App],
-      bootstrap: [app.Directives.App],
+  var MainModule = ng.core.NgModule({
+      imports: [
+        ng.platformBrowser.BrowserModule,
+        ng.forms.FormsModule,
+        Router()
+      ],
+      declarations: [
+        BodyComponent,
+        MainLayoutComponent(),
+        HomePageComponent(),
+        AboutPageComponent(),
+        AccordionPageComponent()
+      ],
+      bootstrap: [BodyComponent],
       providers: []
     })
     .Class({
@@ -57,7 +29,6 @@ app.Config.init = function() {
 
   ng.platformBrowserDynamic
     .platformBrowserDynamic()
-    .bootstrapModule(app.Modules.MainModule);
+    .bootstrapModule(MainModule);
 }
-
-document.addEventListener('DOMContentLoaded', app.Config.init);
+document.addEventListener('DOMContentLoaded', initialize);

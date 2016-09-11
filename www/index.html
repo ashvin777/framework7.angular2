@@ -1,10 +1,12 @@
 <html>
 
 <head>
-  <title>TeamStack</title>
+  <title>Framework7 Angular2</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="src/app/app.css"></link>
+  <link rel="stylesheet" href="libs/framework7/css/framework7.material.css">
+  <link rel="stylesheet" href="libs/framework7/css/framework7.material.colors.css">
+  <link rel="stylesheet" href="css/kitchen-sink.css">
   <!-- 1. Load libraries -->
   <!-- IE required polyfill -->
   <script src="libs/core-js/client/shim.min.js"></script>
@@ -13,20 +15,17 @@
   <script src="libs/rxjs/bundles/Rx.umd.js"></script>
   <script src="libs/@angular/core/bundles/core.umd.js"></script>
   <script src="libs/@angular/common/bundles/common.umd.js"></script>
+  <script src="libs/@angular/forms/bundles/forms.umd.js"></script>
   <script src="libs/@angular/compiler/bundles/compiler.umd.js"></script>
   <script src="libs/@angular/router/bundles/router.umd.js"></script>
   <script src="libs/@angular/platform-browser/bundles/platform-browser.umd.js"></script>
   <script src="libs/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js"></script>
-
+  <script src="libs/framework7/js/framework7.js"></script>
 </head>
 
 <!-- 3. Display the application -->
 
 <body>
-  <app>
-    <views name="mainView">Loading...</views>
-  </app>
-
   <!-- 2. Load our 'modules' -->
   <script src='app.min.js'></script>
 </body>
