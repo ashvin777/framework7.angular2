@@ -1,10 +1,9 @@
 function Router() {
-  window.location.hash = 'app';
   return ng.router.RouterModule.forRoot([{
-    path: 'app',
+    path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  }, {
+  },{
     path: '',
     component: MainLayoutComponent(),
     children: [{

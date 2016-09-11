@@ -1,5 +1,19 @@
 function initialize() {
 
+  new Framework7({
+    modalTitle: 'Framework7',
+    material: true,
+    pushState: true
+  });
+
+  var LibModule = ng.core.NgModule({
+    imports: [ng.forms.FormsModule]
+  }).Class({
+    constructor: function() {
+
+    }
+  });
+
   var BodyComponent = ng.core.Component({
     selector: 'body',
     template: '<router-outlet></router-outlet>'
@@ -10,7 +24,7 @@ function initialize() {
   var MainModule = ng.core.NgModule({
       imports: [
         ng.platformBrowser.BrowserModule,
-        ng.forms.FormsModule,
+        LibModule,
         Router()
       ],
       declarations: [
@@ -18,7 +32,8 @@ function initialize() {
         MainLayoutComponent(),
         HomePageComponent(),
         AboutPageComponent(),
-        AccordionPageComponent()
+        AccordionPageComponent(),
+        NavIgnore()
       ],
       bootstrap: [BodyComponent],
       providers: []
