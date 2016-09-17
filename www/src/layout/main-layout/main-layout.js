@@ -3,8 +3,10 @@ function MainLayoutComponent() {
     templateUrl: "src/layout/main-layout/main-layout.html"
   }).Class({
     constructor: function() {
-      this.root = {};
-      this.root.appName = "Framework7 Angular2";
+
+    },
+    ngAfterViewInit: function() {
+      window.application.addView('.view-main', {});
     }
   });
 }

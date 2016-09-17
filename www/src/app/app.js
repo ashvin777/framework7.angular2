@@ -1,6 +1,6 @@
 function initialize() {
 
-  new Framework7({
+  window.application = new Framework7({
     modalTitle: 'Framework7',
     material: true,
     pushState: true
@@ -33,7 +33,17 @@ function initialize() {
         HomePageComponent(),
         AboutPageComponent(),
         AccordionPageComponent(),
-        NavIgnore()
+        AutoCompletePageComponent(),
+        CalendarPageComponent(),
+        CardsPageComponent(),
+        ContactsPageComponent(),
+        ChipsPageComponent(),
+        FloatingButtonPageComponent(),
+        FloatingButtonStaticPageComponent(),
+        FloatingButtonPopoverPageComponent(),
+        FloatingButtonDialPageComponent(),
+        Autocomplete(),
+        Calendar()
       ],
       bootstrap: [BodyComponent],
       providers: []
