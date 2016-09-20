@@ -1,4 +1,4 @@
-Framework7 + Angular2
+Framework7 + Angular2 (Under Development)
 ==========
 Full Featured Mobile HTML Framework For Building iOS & Android Apps with the Power of Angular 2 Version.
 
