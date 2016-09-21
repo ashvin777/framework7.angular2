@@ -4,6 +4,9 @@ function LazyLoadPageComponent() {
   }).Class({
     constructor: function() {
 
+    },
+    ngOnInit: function () {
+      window.application.init();
     }
   });
 }
