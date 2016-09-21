@@ -1,5 +1,6 @@
 function Router() {
-  return ng.router.RouterModule.forRoot([{
+  var router;
+  router = ng.router.RouterModule.forRoot([{
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
@@ -205,4 +206,6 @@ function Router() {
   }], {
     useHash: true
   });
+
+  return router;
 }

@@ -2,7 +2,8 @@ function CalendarPageComponent() {
   return ng.core.Component({
     templateUrl: "src/pages/calendar/calendar.html"
   }).Class({
-    constructor: function() {
+    constructor: [ng.core.ElementRef, function(element) {
+
       this.monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
       this.calendarDefault = {};
@@ -29,6 +30,9 @@ function CalendarPageComponent() {
         onOpen: this.onOpen.bind(this),
         onMonthYearChangeStart: this.onMonthYearChangeStart.bind(this)
       };
+    }],
+    ngOnInit: function(){
+      window.application.init();
     },
     getToolbarTemplate: function() {
       return '<div class="toolbar calendar-custom-toolbar">' +
