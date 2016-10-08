@@ -1,5 +1,4 @@
-
-<div data-page="progressbar" class="page" >
+<div data-page="progressbar" class="page">
   <div class="navbar">
     <div class="navbar-inner">
       <div class="left"><a routerLink="/home" class="back link icon-only"><i class="icon icon-back"></i></a></div>
@@ -18,15 +17,21 @@
         <p>Inline determinate progress bar:</p>
         <div class="ks-demo-progressbar-inline">
           <p><span data-progress="10" class="progressbar"></span></p>
-          <p class="buttons-row"><a href="#" data-progress="10" class="button button-raised">10%</a><a href="#" data-progress="30" class="button button-raised">30%</a><a href="#" data-progress="50" class="button button-raised">50%</a><a href="#" data-progress="100" class="button button-raised">100%</a></p>
+          <p class="buttons-row">
+            <a href="#" data-progress="10" class="button button-raised" (click)="demoProgressbarInline(10)">10%</a>
+            <a href="#" data-progress="30" class="button button-raised" (click)="demoProgressbarInline(30)">30%</a>
+            <a href="#" data-progress="50" class="button button-raised" (click)="demoProgressbarInline(50)">50%</a>
+            <a href="#" data-progress="100" class="button button-raised" (click)="demoProgressbarInline(100)">100%</a>
+          </p>
         </div>
         <p>Inline determinate load & hide:</p>
-        <div class="ks-demo-progressbar-load-hide">
+        <div class="ks-demo-progressbar-load-hide" (click)="demoProgressbarLoadHide()">
           <p style="height:2px"></p>
           <p><a href="#" class="button button-raised">Start Loading</a></p>
         </div>
         <p>Overlay with determinate progress bar on top of the app:</p>
-        <p class="ks-demo-progressbar-overlay"><a href="#" class="button button-raised">Start Loading</a></p>
+        <p class="ks-demo-progressbar-overlay" (click)="demoProgressbarOverlay()">
+          <a href="#" class="button button-raised">Start Loading</a></p>
       </div>
     </div>
     <div class="content-block-title">Infinite Progress Bar</div>
@@ -38,9 +43,9 @@
         <p>Multi-color infinite progress bar</p>
         <p><span class="progressbar-infinite color-multi"></span></p>
         <p>Overlay with infinite progress bar on top of the app</p>
-        <p class="ks-demo-progressbar-infinite-overlay"><a href="#" class="button button-raised">Start Loading</a></p>
+        <p class="ks-demo-progressbar-infinite-overlay" (click)="demoProgressbarInfiniteOverlay()"><a href="#" class="button button-raised">Start Loading</a></p>
         <p>Overlay with infinite multi-color progress bar on top of the app</p>
-        <p class="ks-demo-progressbar-infinite-multi-overlay"><a href="#" class="button button-raised">Start Loading</a></p>
+        <p class="ks-demo-progressbar-infinite-multi-overlay" (click)="demoProgressbarInfiniteMultiOverlay()"><a href="#" class="button button-raised">Start Loading</a></p>
       </div>
     </div>
     <div class="content-block-title">Colored</div>

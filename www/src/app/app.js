@@ -97,7 +97,9 @@ function initialize() {
         TabsPageComponent(),
         Autocomplete(),
         Calendar(),
-        InfiniteScroll()
+        InfiniteScroll(),
+        Picker(),
+        Sortable()
       ],
       bootstrap: [BodyComponent],
       providers: []

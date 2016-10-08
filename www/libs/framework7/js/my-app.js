@@ -1,4 +1,4 @@
-var myApp = {};
+var window.application = {};
 var mainView = {};
 var rightView = {};
 var $$ = Dom7;
@@ -6,13 +6,13 @@ var $$ = Dom7;
 angular.module("AngularApp", [])
 
 .run(function() {
-    myApp = new Framework7({
+    window.application = new Framework7({
         modalTitle: 'Framework7',
         material: true,
         pushState: true,
         angular: true
     });
-    mainView = myApp.addView('.view-main', {});
+    mainView = window.application.addView('.view-main', {});
 })
 
 .config(function() {
@@ -60,29 +60,29 @@ angular.module("AngularApp", [])
 }])
 
 .controller("CalendarCtrl", ["$scope", function($scope) {
-    var calendarDefault = myApp.calendar({
+    var calendarDefault = window.application.calendar({
         input: '#ks-calendar-default',
     });
     // With custom date format
-    var calendarDateFormat = myApp.calendar({
+    var calendarDateFormat = window.application.calendar({
         input: '#ks-calendar-date-format',
         dateFormat: 'DD, MM dd, yyyy'
     });
     // With multiple values
-    var calendarMultiple = myApp.calendar({
+    var calendarMultiple = window.application.calendar({
         input: '#ks-calendar-multiple',
         dateFormat: 'M dd yyyy',
         multiple: true
     });
     // Range Picker
-    var calendarRange = myApp.calendar({
+    var calendarRange = window.application.calendar({
         input: '#ks-calendar-range',
         dateFormat: 'M dd yyyy',
         rangePicker: true
     });
     // Inline with custom toolbar
     var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    var calendarInline = myApp.calendar({
+    var calendarInline = window.application.calendar({
         container: '#ks-calendar-inline-container',
         value: [new Date()],
         weekHeader: false,
@@ -132,7 +132,7 @@ angular.module("AngularApp", [])
             loading = false;
             if (data === '') {
                 // Nothing more to load, detach infinite scroll events to prevent unnecessary loadings
-                myApp.detachInfiniteScroll($$('.infinite-scroll'));
+                window.application.detachInfiniteScroll($$('.infinite-scroll'));
             } else {
                 // Append loaded elements to list block
                 $$('.infinite-scroll .list-block ul').append(data);
@@ -145,41 +145,41 @@ angular.module("AngularApp", [])
 
 .controller("ModalsCtrl", [function() {
     $$('.demo-alert').on('click', function() {
-        myApp.alert('Hello!');
+        window.application.alert('Hello!');
     });
     $$('.demo-confirm').on('click', function() {
-        myApp.confirm('Are you feel good today?', function() {
-            myApp.alert('Great!');
+        window.application.confirm('Are you feel good today?', function() {
+            window.application.alert('Great!');
         });
     });
     $$('.demo-prompt').on('click', function() {
-        myApp.prompt('What is your name?', function(data) {
+        window.application.prompt('What is your name?', function(data) {
             // @data contains input value
-            myApp.confirm('Are you sure that your name is ' + data + '?', function() {
-                myApp.alert('Ok, your name is ' + data + ' ;)');
+            window.application.confirm('Are you sure that your name is ' + data + '?', function() {
+                window.application.alert('Ok, your name is ' + data + ' ;)');
             });
         });
     });
     $$('.demo-login').on('click', function() {
-        myApp.modalLogin('Enter your username and password', function(username, password) {
-            myApp.alert('Thank you! Username: ' + username + ', password: ' + password);
+        window.application.modalLogin('Enter your username and password', function(username, password) {
+            window.application.alert('Thank you! Username: ' + username + ', password: ' + password);
         });
     });
     $$('.demo-password').on('click', function() {
-        myApp.modalPassword('Enter your password', function(password) {
-            myApp.alert('Thank you! Password: ' + password);
+        window.application.modalPassword('Enter your password', function(password) {
+            window.application.alert('Thank you! Password: ' + password);
         });
     });
     $$('.demo-modals-stack').on('click', function() {
         // Open 5 alerts
-        myApp.alert('Alert 1');
-        myApp.alert('Alert 2');
-        myApp.alert('Alert 3');
-        myApp.alert('Alert 4');
-        myApp.alert('Alert 5');
+        window.application.alert('Alert 1');
+        window.application.alert('Alert 2');
+        window.application.alert('Alert 3');
+        window.application.alert('Alert 4');
+        window.application.alert('Alert 5');
     });
     $$('.demo-picker-modal').on('click', function() {
-        myApp.pickerModal('.picker-modal-demo');
+        window.application.pickerModal('.picker-modal-demo');
     });
     var actionSheetButtons = [
         // First buttons group
@@ -193,14 +193,14 @@ angular.module("AngularApp", [])
             {
                 text: 'Alert',
                 onClick: function() {
-                    myApp.alert('He Hoou!');
+                    window.application.alert('He Hoou!');
                 }
             },
             // Second button
             {
                 text: 'Second Alert',
                 onClick: function() {
-                    myApp.alert('Second Alert!');
+                    window.application.alert('Second Alert!');
                 }
             },
             // Another red button
@@ -208,7 +208,7 @@ angular.module("AngularApp", [])
                 text: 'Nice Red Button ',
                 color: 'red',
                 onClick: function() {
-                    myApp.alert('You have clicked red button!');
+                    window.application.alert('You have clicked red button!');
                 }
             },
         ],
@@ -218,11 +218,11 @@ angular.module("AngularApp", [])
         }]
     ];
     $$('.demo-actions').on('click', function(e) {
-        myApp.actions(actionSheetButtons);
+        window.application.actions(actionSheetButtons);
     });
     $$('.demo-actions-popover').on('click', function(e) {
         // We need to pass additional target parameter (this) for popover
-        myApp.actions(this, actionSheetButtons);
+        window.application.actions(this, actionSheetButtons);
     });
 }])
 
@@ -254,10 +254,10 @@ angular.module("AngularApp", [])
     var answerTimeout, isFocused;
 
     // Initialize Messages
-    var myMessages = myApp.messages('.messages');
+    var myMessages = window.application.messages('.messages');
 
     // Initialize Messagebar
-    var myMessagebar = myApp.messagebar('.messagebar');
+    var myMessagebar = window.application.messagebar('.messagebar');
 
     $$('.messagebar a.send-message').on('touchstart mousedown', function() {
         isFocused = document.activeElement && document.activeElement === myMessagebar.textarea[0];
@@ -301,37 +301,7 @@ angular.module("AngularApp", [])
 }])
 
 .controller("NotificationsCtrl", [function() {
-    $$('.ks-notification-1').on('click', function() {
-        myApp.addNotification({
-            message: 'Simple message'
-        });
-    });
-    $$('.ks-notification-2').on('click', function() {
-        myApp.addNotification({
-            message: 'Multi-line message. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in magna nisi.',
-        });
-    });
-    $$('.ks-notification-3').on('click', function() {
-        myApp.addNotification({
-            message: 'Nice yellow button',
-            button: {
-                text: 'Click me',
-                color: 'yellow'
-            }
-        });
-    });
-    $$('.ks-notification-4').on('click', function() {
-        myApp.addNotification({
-            message: 'Close me to see Alert',
-            button: {
-                text: 'Close',
-                color: 'lightgreen'
-            },
-            onClose: function() {
-                myApp.alert('Notification closed');
-            }
-        });
-    });
+
 }])
 
 .controller("PhotoBrowser", [function() {
@@ -351,27 +321,27 @@ angular.module("AngularApp", [])
         }
 
     ];
-    var photoBrowserStandalone = myApp.photoBrowser({
+    var photoBrowserStandalone = window.application.photoBrowser({
         photos: photoBrowserPhotos
     });
-    var photoBrowserPopup = myApp.photoBrowser({
+    var photoBrowserPopup = window.application.photoBrowser({
         photos: photoBrowserPhotos,
         type: 'popup'
     });
-    var photoBrowserPage = myApp.photoBrowser({
+    var photoBrowserPage = window.application.photoBrowser({
         photos: photoBrowserPhotos,
         type: 'page'
     });
-    var photoBrowserDark = myApp.photoBrowser({
+    var photoBrowserDark = window.application.photoBrowser({
         photos: photoBrowserPhotos,
         theme: 'dark'
     });
-    var photoBrowserPopupDark = myApp.photoBrowser({
+    var photoBrowserPopupDark = window.application.photoBrowser({
         photos: photoBrowserPhotos,
         theme: 'dark',
         type: 'popup'
     });
-    var photoBrowserLazy = myApp.photoBrowser({
+    var photoBrowserLazy = window.application.photoBrowser({
         photos: photoBrowserPhotos,
         lazyLoading: true,
         theme: 'dark'
@@ -400,7 +370,7 @@ angular.module("AngularApp", [])
     var today = new Date();
 
     // iOS Device picker
-    var pickerDevice = myApp.picker({
+    var pickerDevice = window.application.picker({
         input: '#ks-picker-device',
         cols: [{
             textAlign: 'center',
@@ -409,7 +379,7 @@ angular.module("AngularApp", [])
     });
 
     // Describe yourself picker
-    var pickerDescribe = myApp.picker({
+    var pickerDescribe = window.application.picker({
         input: '#ks-picker-describe',
         rotateEffect: true,
         cols: [{
@@ -426,7 +396,7 @@ angular.module("AngularApp", [])
         German: ['Audi', 'BMW', 'Mercedes', 'Volkswagen', 'Volvo'],
         American: ['Cadillac', 'Chrysler', 'Dodge', 'Ford']
     };
-    var pickerDependent = myApp.picker({
+    var pickerDependent = window.application.picker({
         input: '#ks-picker-dependent',
         rotateEffect: true,
         formatValue: function(picker, values) {
@@ -447,7 +417,7 @@ angular.module("AngularApp", [])
     });
 
     // Custom Toolbar
-    var pickerCustomToolbar = myApp.picker({
+    var pickerCustomToolbar = window.application.picker({
         input: '#ks-picker-custom-toolbar',
         rotateEffect: true,
         toolbarTemplate: '<div class="toolbar">' +
@@ -485,7 +455,7 @@ angular.module("AngularApp", [])
     });
 
     // Inline date-time
-    var pickerInline = myApp.picker({
+    var pickerInline = window.application.picker({
         input: '#ks-picker-date',
         container: '#ks-picker-date-container',
         toolbar: false,
@@ -556,53 +526,36 @@ angular.module("AngularApp", [])
 }])
 
 .controller("PreloaderController", [function() {
-    $$('.demo-indicator').on('click', function() {
-        myApp.showIndicator();
-        setTimeout(function() {
-            myApp.hideIndicator();
-        }, 2000);
-    });
-    $$('.demo-preloader').on('click', function() {
-        myApp.showPreloader();
-        setTimeout(function() {
-            myApp.hidePreloader();
-        }, 2000);
-    });
-    $$('.demo-preloader-custom').on('click', function() {
-        myApp.showPreloader('My text...');
-        setTimeout(function() {
-            myApp.hidePreloader();
-        }, 2000);
-    });
+
 }])
 
 .controller("SwipeDeleteController", [function() {
     $$('.demo-remove-callback').on('deleted', function() {
-        myApp.alert('Thanks, item removed!');
+        window.application.alert('Thanks, item removed!');
     });
     $$('.demo-reply').on('click', function() {
-        myApp.alert('Reply');
+        window.application.alert('Reply');
     });
     $$('.demo-mark').on('click', function() {
-        myApp.alert('Mark');
+        window.application.alert('Mark');
     });
     $$('.demo-forward').on('click', function() {
-        myApp.alert('Forward');
+        window.application.alert('Forward');
     });
 }])
 
 .controller("MediaListController", [function() {
     $$('.demo-remove-callback').on('deleted', function() {
-        myApp.alert('Thanks, item removed!');
+        window.application.alert('Thanks, item removed!');
     });
     $$('.demo-reply').on('click', function() {
-        myApp.alert('Reply');
+        window.application.alert('Reply');
     });
     $$('.demo-mark').on('click', function() {
-        myApp.alert('Mark');
+        window.application.alert('Mark');
     });
     $$('.demo-forward').on('click', function() {
-        myApp.alert('Forward');
+        window.application.alert('Forward');
     });
 }])
 
@@ -630,7 +583,7 @@ angular.module("AngularApp", [])
                 '</li>';
             ptrContent.find('ul').prepend(linkHTML);
             // When loading done, we need to "close" it
-            myApp.pullToRefreshDone();
+            window.application.pullToRefreshDone();
         }, 2000);
     });
 }])
@@ -650,15 +603,15 @@ angular.module("AngularApp", [])
     $$($element).find('.button').on('click', function() {
         var username = $$($element).find('input[name="username"]').val();
         var password = $$($element).find('input[name="password"]').val();
-        myApp.alert('Username: ' + username + ', password: ' + password, function() {
+        window.application.alert('Username: ' + username + ', password: ' + password, function() {
             mainView.router.back();
         });
     });
     $$('.login-screen').find('.button').on('click', function() {
         var username = $$('.login-screen').find('input[name="username"]').val();
         var password = $$('.login-screen').find('input[name="password"]').val();
-        myApp.alert('Username: ' + username + ', password: ' + password, function() {
-            myApp.closeModal('.login-screen');
+        window.application.alert('Username: ' + username + ', password: ' + password, function() {
+            window.application.closeModal('.login-screen');
         });
     });
 }])
@@ -691,7 +644,7 @@ angular.module("AngularApp", [])
     }
 
     // Create virtual list
-    var virtualList = myApp.virtualList($$($element).find('.virtual-list'), {
+    var virtualList = window.application.virtualList($$($element).find('.virtual-list'), {
         // Pass array with items
         items: items,
         // Custom search function for searchbar
@@ -719,12 +672,12 @@ angular.module("AngularApp", [])
 }])
 
 .controller("SwiperGallery", [function() {
-    var swiperTop = myApp.swiper('.ks-swiper-gallery-top', {
+    var swiperTop = window.application.swiper('.ks-swiper-gallery-top', {
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
         spaceBetween: 10
     });
-    var swiperThumbs = myApp.swiper('.ks-swiper-gallery-thumbs', {
+    var swiperThumbs = window.application.swiper('.ks-swiper-gallery-thumbs', {
         slidesPerView: 'auto',
         spaceBetween: 10,
         centeredSlides: true,
@@ -739,77 +692,14 @@ angular.module("AngularApp", [])
     $$($element).find('.chip-delete').on('click', function(e) {
         e.preventDefault();
         var chip = $$(this).parents('.chip');
-        myApp.confirm('Do you want to delete this tiny demo Chip?', function() {
+        window.application.confirm('Do you want to delete this tiny demo Chip?', function() {
             chip.remove();
         });
     });
 }])
 
 .controller("ProgressBar", [function() {
-    $$('.ks-demo-progressbar-inline .button').on('click', function() {
-        var progress = $$(this).attr('data-progress');
-        var progressbar = $$('.ks-demo-progressbar-inline .progressbar');
-        myApp.setProgressbar(progressbar, progress);
-    });
-    $$('.ks-demo-progressbar-load-hide .button').on('click', function() {
-        var container = $$('.ks-demo-progressbar-load-hide p:first-child');
-        if (container.children('.progressbar').length) return; //don't run all this if there is a current progressbar loading
 
-        myApp.showProgressbar(container, 0);
-
-        // Simluate Loading Something
-        var progress = 0;
-
-        function simulateLoading() {
-            setTimeout(function() {
-                var progressBefore = progress;
-                progress += Math.random() * 20;
-                myApp.setProgressbar(container, progress);
-                if (progressBefore < 100) {
-                    simulateLoading(); //keep "loading"
-                } else myApp.hideProgressbar(container); //hide
-            }, Math.random() * 200 + 200);
-        }
-        simulateLoading();
-    });
-    $$('.ks-demo-progressbar-overlay .button').on('click', function() {
-        // Add Directly To Body
-        var container = $$('body');
-        if (container.children('.progressbar, .progressbar-infinite').length) return; //don't run all this if there is a current progressbar loading
-
-        myApp.showProgressbar(container, 0, 'yellow');
-
-        // Simluate Loading Something
-        var progress = 0;
-
-        function simulateLoading() {
-            setTimeout(function() {
-                var progressBefore = progress;
-                progress += Math.random() * 20;
-                myApp.setProgressbar(container, progress);
-                if (progressBefore < 100) {
-                    simulateLoading(); //keep "loading"
-                } else myApp.hideProgressbar(container); //hide
-            }, Math.random() * 200 + 200);
-        }
-        simulateLoading();
-    });
-    $$('.ks-demo-progressbar-infinite-overlay .button').on('click', function() {
-        var container = $$('body');
-        if (container.children('.progressbar, .progressbar-infinite').length) return; //don't run all this if there is a current progressbar loading
-        myApp.showProgressbar(container, 'yellow');
-        setTimeout(function() {
-            myApp.hideProgressbar();
-        }, 5000);
-    });
-    $$('.ks-demo-progressbar-infinite-multi-overlay .button').on('click', function() {
-        var container = $$('body');
-        if (container.children('.progressbar, .progressbar-infinite').length) return; //don't run all this if there is a current progressbar loading
-        myApp.showProgressbar(container, 'multi');
-        setTimeout(function() {
-            myApp.hideProgressbar();
-        }, 5000);
-    });
 }])
 
 .controller("Autocomplete", [function() {
@@ -817,7 +707,7 @@ angular.module("AngularApp", [])
     var fruits = ('Apple Apricot Avocado Banana Melon Orange Peach Pear Pineapple').split(' ');
 
     // Simple Dropdown
-    var autocompleteDropdownSimple = myApp.autocomplete({
+    var autocompleteDropdownSimple = window.application.autocomplete({
         input: '#autocomplete-dropdown',
         openIn: 'dropdown',
         source: function(autocomplete, query, render) {
@@ -836,7 +726,7 @@ angular.module("AngularApp", [])
     });
 
     // Dropdown with all values
-    var autocompleteDropdownAll = myApp.autocomplete({
+    var autocompleteDropdownAll = window.application.autocomplete({
         input: '#autocomplete-dropdown-all',
         openIn: 'dropdown',
         source: function(autocomplete, query, render) {
@@ -851,7 +741,7 @@ angular.module("AngularApp", [])
     });
 
     // Dropdown with placeholder
-    var autocompleteDropdownPlaceholder = myApp.autocomplete({
+    var autocompleteDropdownPlaceholder = window.application.autocomplete({
         input: '#autocomplete-dropdown-placeholder',
         openIn: 'dropdown',
         dropdownPlaceholderText: 'Try to type "Apple"',
@@ -871,7 +761,7 @@ angular.module("AngularApp", [])
     });
 
     // Dropdown with ajax data
-    var autocompleteDropdownAjax = myApp.autocomplete({
+    var autocompleteDropdownAjax = window.application.autocomplete({
         input: '#autocomplete-dropdown-ajax',
         openIn: 'dropdown',
         preloader: true, //enable preloader
@@ -911,7 +801,7 @@ angular.module("AngularApp", [])
     });
 
     // Simple Standalone
-    var autocompleteStandaloneSimple = myApp.autocomplete({
+    var autocompleteStandaloneSimple = window.application.autocomplete({
         openIn: 'page', //open in page
         opener: $$('#autocomplete-standalone'), //link that opens autocomplete
         backOnSelect: true, //go back after we select something
@@ -937,7 +827,7 @@ angular.module("AngularApp", [])
     });
 
     // Standalone Popup
-    var autocompleteStandalonePopup = myApp.autocomplete({
+    var autocompleteStandalonePopup = window.application.autocomplete({
         openIn: 'popup', //open in page
         opener: $$('#autocomplete-standalone-popup'), //link that opens autocomplete
         backOnSelect: true, //go back after we select something
@@ -963,7 +853,7 @@ angular.module("AngularApp", [])
     });
 
     // Multiple Standalone
-    var autocompleteStandaloneMultiple = myApp.autocomplete({
+    var autocompleteStandaloneMultiple = window.application.autocomplete({
         openIn: 'page', //open in page
         opener: $$('#autocomplete-standalone-multiple'), //link that opens autocomplete
         multiple: true, //allow multiple values
@@ -989,7 +879,7 @@ angular.module("AngularApp", [])
     });
 
     // Standalone With Ajax
-    var autocompleteStandaloneAjax = myApp.autocomplete({
+    var autocompleteStandaloneAjax = window.application.autocomplete({
         openIn: 'page', //open in page
         opener: $$('#autocomplete-standalone-ajax'), //link that opens autocomplete
         multiple: true, //allow multiple values

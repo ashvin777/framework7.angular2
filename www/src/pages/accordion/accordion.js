@@ -4,6 +4,9 @@ function AccordionPageComponent() {
   }).Class({
     constructor: function() {
 
+    },
+    ngOnInit: function(){
+      window.application.init();
     }
   });
 }

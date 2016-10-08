@@ -4,6 +4,9 @@ function TabsPageComponent() {
   }).Class({
     constructor: function() {
 
+    },
+    ngAfterViewInit: function () {
+      window.application.init()
     }
   });
 }

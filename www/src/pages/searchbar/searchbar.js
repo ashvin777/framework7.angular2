@@ -4,6 +4,9 @@ function SearchbarPageComponent() {
   }).Class({
     constructor: function() {
 
+    },
+    ngOnInit: function () {
+      window.application.init();
     }
   });
 }

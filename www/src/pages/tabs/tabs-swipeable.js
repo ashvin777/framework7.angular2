@@ -4,6 +4,9 @@ function TabsSwipeablePageComponent() {
   }).Class({
     constructor: function() {
 
+    },
+    ngAfterViewInit: function () {
+      window.application.init()
     }
   });
 }
